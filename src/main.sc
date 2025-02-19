@@ -2,17 +2,25 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
 theme: /
 
-    state: Start
-        q!: $regex</start>
-        a: Начнём.
-
     state: Hello
         intent!: /привет
-        a: Привет привет
+        a: Здравствуйте! Я виртуальный консультант. Чем могу помочь?
 
     state: Bye
         intent!: /пока
-        a: Пока пока
+        a: До свидания! Хорошего дня.
+ 
+    state: CreditPayment
+        intent!:/У меня есть кредит. как его оплатить
+        a: Есть два способа оплаты займа: безналичным и наличными. Как вам удобнее? 
+
+    state: CashlessPayment
+        intent!: /безналичным
+        a: Вы можете оплатить кредит в приложении Freedom SuperApp (без комиссии) или сделать P2P-перевод с приложений других банков при наличии карты FreePay.
+
+   state: CashPayment
+        intent!: /наличными
+        a: Оплатить займ наличными можно в кассах нашего офиса или через терминалы оплаты.
 
     state: NoMatch
         event!: noMatch
